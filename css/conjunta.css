@@ -1,0 +1,187 @@
+/* ==========================================================================
+   Transitolândia · Quatro travessias — o que a apresentação conjunta acrescenta
+   aos slides dos quatro jogos (deck.css e fluido.css são os deles).
+   ========================================================================== */
+
+/* capa e encerramento com os quatro totens */
+.capa4 { display: grid; grid-template-columns: 1fr auto; gap: 70px; align-items: center; height: 100%; }
+.capa4 h1 { font-size: 132px; margin: 6px 0 26px; }
+.capa4 .lide { color: #EDE2D0; max-width: 31ch; }
+.capa4 .logos { display: flex; gap: 22px; align-items: center; margin-top: 44px; }
+.capa4 .logos img { height: 78px; width: auto; filter: drop-shadow(0 8px 10px rgba(0, 0, 0, .45)); }
+.capa4 .creditos { margin-top: 40px; font-family: var(--f-mono); font-size: 18px; letter-spacing: .14em; text-transform: uppercase; color: #B8AE9E; }
+.quatro-totens { display: grid; grid-template-columns: repeat(4, 200px); gap: 20px; align-items: start; }
+.quatro-totens .totem { width: 200px; border-radius: 24px; padding: 8px; }
+.quatro-totens .totem > video { border-radius: 17px; }
+.quatro-totens .totem:nth-child(even) { margin-top: 90px; }
+.quatro-totens .totem:nth-child(odd) { margin-bottom: 90px; }
+
+/* sumário */
+.sumario { display: grid; grid-template-columns: repeat(6, 1fr); gap: 22px; margin-top: 40px; }
+.sumario button { display: flex; flex-direction: column; gap: 10px; text-align: left; background: var(--surface); border-radius: 24px; padding: 14px 14px 22px;
+  box-shadow: 0 2px 0 rgba(40, 50, 67, .06), 0 18px 40px rgba(40, 50, 67, .10); transition: transform .25s, box-shadow .25s; }
+.sumario button:hover { transform: translateY(-8px); box-shadow: 0 26px 50px rgba(40, 50, 67, .18); }
+.sumario .quadro { display: block; aspect-ratio: 9 / 14; border-radius: 16px; background: #222 center / cover; }
+.sumario .n { font-family: var(--f-mono); font-size: 15px; letter-spacing: .16em; text-transform: uppercase; color: var(--brown); padding: 4px 6px 0; }
+.sumario h3 { font-size: 27px; margin: 0; padding: 0 6px; }
+.sumario p { font-size: 19px; line-height: 1.35; color: var(--ink-2); padding: 0 6px; }
+
+/* proposta */
+.num-g { font-family: var(--f-display); font-weight: 800; font-size: 72px; line-height: 1; color: var(--yellow); }
+.grade3 .cartao p { font-size: 21px; line-height: 1.3; margin-top: 6px; }
+.foto-grande { flex: none; width: 880px; }
+.foto-grande img { width: 100%; border-radius: 26px; box-shadow: 0 30px 60px rgba(20, 24, 34, .28); }
+.foto-grande figcaption, .fotos4 figcaption, .acab p { font-family: var(--f-mono); font-size: 16px; letter-spacing: .08em; color: var(--ink-2); margin-top: 10px; text-align: center; }
+
+/* direção de arte */
+.mood { display: grid; grid-template-columns: 480px 1fr; gap: 64px; margin-top: 34px; align-items: start; }
+.palavras { display: flex; flex-direction: column; gap: 20px; }
+.palavras h3 { font-size: 40px; margin: 0; color: var(--purple); }
+.palavras div p { font-size: 25px; }
+.fotos4 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 22px; }
+.fotos4 img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 18px; box-shadow: 0 14px 30px rgba(40, 50, 67, .16); }
+.fotos4 figcaption { margin-top: 6px; }
+
+/* acabamentos */
+.acab { display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 34px; margin-top: 40px; align-items: end; }
+.acab .img { background: #fff; border-radius: 24px; overflow: hidden; box-shadow: 0 16px 36px rgba(40, 50, 67, .14); }
+.acab .img img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.acab h3 { margin: 18px 0 0; text-align: center; }
+.acab .escolhido .img { outline: 7px solid var(--yellow); outline-offset: 6px; }
+.acab .escolhido .img img { aspect-ratio: 1400 / 828; }
+.acab .escolhido h3 .chip { vertical-align: 6px; margin-left: 8px; background: var(--yellow); color: #2a1f00; }
+
+/* do quiz ao jogo */
+.origem { display: grid; grid-template-columns: auto 1fr; gap: 60px; margin-top: 30px; align-items: center; }
+.origem .grupo { display: flex; gap: 14px; }
+.origem .totem { width: 172px; border-radius: 20px; padding: 7px; }
+.origem .totem > img { border-radius: 14px; }
+.origem .legenda { margin: 10px 0 18px; }
+.depara.compacto { margin-top: 0; gap: 12px 8px; grid-template-columns: 1fr 56px 1.15fr; }
+.depara.compacto .de, .depara.compacto .para { font-size: 23px; padding: 16px 22px; border-radius: 16px; }
+.depara.compacto .seta { font-size: 36px; }
+
+/* passeio */
+.passeio { display: grid; grid-template-columns: 1fr 44px 1fr 44px 1fr 44px 1fr; gap: 0 6px; margin-top: 34px; align-items: stretch; }
+.passeio .seta { align-self: center; font-family: var(--f-display); font-size: 44px; color: var(--yellow); text-align: center; }
+.passeio .parada { padding: 14px 14px 24px; display: flex; flex-direction: column; gap: 8px; }
+.passeio .parada img { width: 100%; height: 230px; object-fit: cover; object-position: 50% 62%; border-radius: 16px; margin-bottom: 6px; }
+.passeio .n { font-family: var(--f-mono); font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: var(--brown); padding: 0 8px; }
+.passeio h3 { font-size: 30px; margin: 0; padding: 0 8px; }
+.passeio p { font-size: 21px; line-height: 1.38; padding: 0 8px; }
+.passeio .quem { font-family: var(--f-display); font-weight: 700; font-size: 22px; color: var(--purple); }
+.passeio .quem::before { content: 'quem para os carros'; font-family: var(--f-mono); font-weight: 400; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); display: block; }
+
+/* versões */
+.versoes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 34px; margin-top: 34px; }
+.versoes .v { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; }
+.versoes .totem { width: 232px; border-radius: 24px; padding: 8px; margin-bottom: 8px; }
+.versoes .totem > img { border-radius: 17px; }
+.versoes .v.final .totem { box-shadow: 0 0 0 7px var(--yellow), 0 30px 60px rgba(20, 24, 34, .35); }
+.versoes .n { font-family: var(--f-mono); font-size: 15px; letter-spacing: .14em; text-transform: uppercase; color: var(--brown); }
+.versoes .v.final .n { color: var(--purple); }
+.versoes h3 { font-size: 30px; margin: 0; }
+.versoes p { font-size: 20px; line-height: 1.38; color: var(--ink-2); }
+
+/* princípios + as regras novas */
+.principios.compacto { margin-top: 30px; gap: 22px; }
+.principios.compacto .cartao { padding: 24px 30px 26px; }
+.principios.compacto .num { font-size: 44px; margin-bottom: 2px; }
+.principios.compacto h3 { font-size: 29px; }
+.principios.compacto .cartao p { font-size: 21px; line-height: 1.38; }
+.novas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 24px; }
+.novas div { background: var(--purple); color: #F4EADB; border-radius: 20px; padding: 18px 24px; font-size: 21px; line-height: 1.38; }
+.novas b { color: #fff; }
+.novas .n { display: block; font-family: var(--f-mono); font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: #E7DDEE; opacity: .8; margin-bottom: 4px; }
+
+/* kit que cresce */
+.cresce { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 30px; }
+.cresce .cartao { padding: 24px 22px 26px; }
+.cresce .n { display: block; font-family: var(--f-mono); font-size: 15px; letter-spacing: .14em; text-transform: uppercase; color: var(--brown); margin-bottom: 18px; text-align: center; }
+.cresce .kit { grid-template-columns: repeat(3, 1fr); gap: 16px 10px; }
+.cresce .kit img { max-height: 112px; }
+.cresce .kit figcaption { font-size: 12px; text-align: center; }
+
+/* números */
+.gestos { display: flex; flex-direction: column; gap: 10px; margin-top: 40px; }
+.gestos .chip { font-size: 20px; padding: 8px 18px; }
+
+/* sala com os quatro jogos */
+.jogos { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+.jogos button { display: flex; gap: 10px; align-items: center; padding: 12px 20px; border-radius: 999px; background: rgba(255, 255, 255, .07); color: #F4EADB; font-family: var(--f-display); font-weight: 700; font-size: 23px; transition: background .2s; }
+.jogos button:hover { background: rgba(255, 255, 255, .14); }
+.jogos button.agora { background: var(--purple); color: #fff; }
+.jogos button .t { font-family: var(--f-mono); font-weight: 400; font-size: 15px; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 255, 255, .15); }
+.sala .capitulos { margin-top: 22px; }
+.sala .capitulos button { font-size: 21px; padding: 12px 16px; }
+
+/* capítulos: pílula e menu fora do palco */
+#nav #capnome { background: rgba(40, 50, 67, .75); color: #fff; border-radius: 999px; padding: 0 16px; width: auto; height: 38px; font-family: var(--f-mono); font-size: 13px; display: flex; gap: 8px; align-items: center; }
+#menu { position: fixed; right: 18px; bottom: 66px; z-index: 6; background: rgba(27, 35, 48, .96); border-radius: 18px; padding: 10px; display: none; flex-direction: column; gap: 4px; min-width: 280px; box-shadow: 0 20px 40px rgba(0, 0, 0, .4); }
+#menu.aberto { display: flex; }
+#menu button { text-align: left; padding: 10px 14px; border-radius: 12px; color: #F4EADB; font-family: var(--f-body); font-size: 16px; display: flex; justify-content: space-between; gap: 18px; }
+#menu button:hover { background: rgba(255, 255, 255, .1); }
+#menu button.agora { background: var(--yellow); color: #2a1f00; }
+#menu button span { font-family: var(--f-mono); font-size: 12px; opacity: .7; }
+
+/* ============================================================== modo fluido (celular) */
+body.fluido .capa4 { display: flex; flex-direction: column; gap: 26px; height: auto; }
+body.fluido .capa4 h1 { font-size: clamp(46px, 13vw, 88px); }
+body.fluido .capa4 .logos { flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+body.fluido .capa4 .logos img { height: 40px; }
+body.fluido .capa4 .creditos { font-size: 10px; margin-top: 20px; }
+body.fluido .quatro-totens { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+body.fluido .quatro-totens .totem { width: 100%; border-radius: 12px; padding: 4px; margin: 0 !important; }
+body.fluido .quatro-totens .totem > video { border-radius: 9px; }
+body.fluido .sumario { grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 20px; }
+body.fluido .sumario h3 { font-size: 17px; }
+body.fluido .sumario p { font-size: 13px; }
+body.fluido .sumario .n { font-size: 10px; }
+body.fluido .sumario .quadro { aspect-ratio: 4 / 3; }
+body.fluido .num-g { font-size: 40px; }
+body.fluido .foto-grande { width: 100%; }
+body.fluido .mood, body.fluido .acab, body.fluido .origem, body.fluido .cresce, body.fluido .novas { grid-template-columns: 1fr; gap: 16px; margin-top: 20px; }
+body.fluido .palavras h3 { font-size: 22px; }
+body.fluido .palavras { gap: 10px; }
+body.fluido .origem .grupo { gap: 8px; }
+body.fluido .origem .totem { width: calc((100% - 16px) / 3); border-radius: 12px; padding: 4px; margin: 0; }
+body.fluido .origem .totem > img { border-radius: 9px; }
+body.fluido .depara.compacto { grid-template-columns: 1fr; }
+body.fluido .depara.compacto .de, body.fluido .depara.compacto .para { font-size: 15px; padding: 12px 14px; }
+body.fluido .passeio { grid-template-columns: 1fr; gap: 10px; margin-top: 20px; }
+body.fluido .passeio .seta { transform: rotate(90deg); font-size: 24px; height: 24px; line-height: 24px; }
+body.fluido .passeio .parada img { height: 150px; }
+body.fluido .passeio h3 { font-size: 20px; }
+body.fluido .passeio p { font-size: 15px; }
+body.fluido .passeio .quem { font-size: 16px; }
+body.fluido .versoes { grid-template-columns: 1fr 1fr; gap: 20px 12px; margin-top: 20px; }
+body.fluido .versoes .totem { width: 100%; border-radius: 14px; padding: 5px; margin: 0 0 4px; }
+body.fluido .versoes .totem > img { border-radius: 10px; }
+body.fluido .versoes h3 { font-size: 17px; }
+body.fluido .versoes p { font-size: 13px; }
+body.fluido .versoes .n { font-size: 10px; }
+body.fluido .principios.compacto .cartao p { font-size: 15px; }
+body.fluido .novas div { font-size: 15px; padding: 14px 16px; }
+body.fluido .cresce .kit img { max-height: 60px; }
+body.fluido .numeros { grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+body.fluido .numeros .v { font-size: 44px; }
+body.fluido .numeros .v small { font-size: 22px; }
+body.fluido .numeros p { font-size: 14px; }
+body.fluido .gestos { margin-top: 20px; }
+body.fluido .gestos .chip { font-size: 12px; padding: 4px 10px; }
+body.fluido .jogos { gap: 6px; margin-top: 18px; }
+body.fluido .jogos button { font-size: 14px; padding: 8px 12px; }
+body.fluido .jogos button .t { width: 20px; height: 20px; font-size: 11px; }
+body.fluido #nav #capnome { display: none; }
+body.fluido #menu { right: 10px; bottom: 54px; }
+
+/* ajustes de conferência */
+.capitulos[hidden] { display: none !important; }
+.olho b { white-space: nowrap; }
+.slide[data-titulo$="Uma rua com curva"] .pano { height: 318px; margin-top: 24px; }
+body.fluido .slide[data-titulo$="Uma rua com curva"] .pano { height: 150px; }
+body.fluido .palavras div p { font-size: clamp(15px, 3.9vw, 20px); }
+.depara .seta.vs { font-family: var(--f-mono); font-size: 18px; letter-spacing: .1em; color: var(--brown); }
+.novas.quatro { grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.novas.quatro div { font-size: 20px; padding: 16px 20px; }
+body.fluido .novas.quatro { grid-template-columns: 1fr; }

@@ -1,0 +1,170 @@
+/* ==========================================================================
+   MODO FLUIDO — celular na vertical e telas estreitas (js/deck.js põe
+   body.fluido). O palco deixa de ser um quadro de 1920 x 1080 escalado:
+   os slides viram seções empilhadas, rolam com o dedo, em uma coluna só.
+   ========================================================================== */
+html.fluido { height: auto; overflow-x: hidden; overflow-y: auto; scroll-snap-type: y proximity; background: var(--ground); }
+body.fluido { height: auto; overflow: visible; background: var(--ground); }
+body.fluido #palco { position: static; width: 100%; height: auto; transform: none !important; overflow: visible; background: none; }
+body.fluido .slide {
+  position: relative; inset: auto; min-height: 100svh; padding: 64px 20px 84px;
+  opacity: 1; visibility: visible; transform: none; transition: none; scroll-snap-align: start;
+  display: flex; flex-direction: column; justify-content: center;
+}
+body.fluido .slide + .slide { border-top: 1px solid var(--rule); }
+body.fluido .escuro + .slide, body.fluido .slide + .escuro { border-top: 0; }
+
+/* tipografia */
+body.fluido .olho { font-size: 11px; letter-spacing: .16em; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+body.fluido h1 { font-size: clamp(52px, 15vw, 96px); }
+body.fluido h2 { font-size: clamp(29px, 7.6vw, 52px) !important; line-height: 1.06; }
+body.fluido h3 { font-size: clamp(18px, 4.6vw, 26px); }
+body.fluido p, body.fluido li { font-size: clamp(15px, 3.9vw, 20px); }
+body.fluido .slide [style*="font-size"] { font-size: clamp(15px, 3.9vw, 20px) !important; }
+body.fluido .lide { font-size: clamp(17px, 4.5vw, 23px) !important; max-width: none; }
+body.fluido .chip { font-size: 11px; padding: 4px 9px; margin: 3px 4px 3px 0; white-space: normal; }
+body.fluido .faixa-rua { width: 140px; height: 7px; margin: 18px 0; background: repeating-linear-gradient(90deg, var(--yellow) 0 24px, transparent 24px 40px); }
+body.fluido [style*="max-width"] { max-width: none !important; }
+body.fluido .lado[style*="gap:"] { gap: 20px !important; }
+body.fluido [style*="margin-left"] { margin-left: 0 !important; }
+
+/* peças */
+body.fluido .cartao { padding: 20px 20px 22px !important; border-radius: 18px; }
+body.fluido .cartao::after { inset: 6px; border-radius: 13px; border-width: 2px; }
+body.fluido .roteiro { font-size: 14.5px; padding: 16px 18px; border-left-width: 7px; }
+body.fluido .roteiro .rot { font-size: 10px; margin-bottom: 6px; }
+body.fluido .totem { width: min(72vw, 340px); border-radius: 26px; padding: 10px; margin: 0 auto; }
+body.fluido .totem > video, body.fluido .totem > img { border-radius: 17px; }
+body.fluido .legenda { font-size: 10px; margin-top: 8px; }
+body.fluido ul.lista { gap: 10px; }
+body.fluido ul.lista li { padding-left: 26px; }
+body.fluido ul.lista li::before { top: 9px; width: 13px; height: 7px; }
+
+/* grades: uma coluna */
+body.fluido .lado, body.fluido .capa, body.fluido .sala, body.fluido .etapa { display: flex; flex-direction: column; align-items: stretch; gap: 26px !important; height: auto; }
+body.fluido .roteiro-todo, body.fluido .principios, body.fluido .elenco, body.fluido .vozes,
+body.fluido .regras, body.fluido .passos, body.fluido .grade2, body.fluido .grade3 { grid-template-columns: 1fr; gap: 16px; margin-top: 22px; }
+
+/* capa e encerramento */
+body.fluido .capa .logo { width: min(100%, 460px); margin: 4px 0 18px -4px; }
+body.fluido .capa .creditos { font-size: 10px; margin-top: 22px; }
+
+/* roteiro */
+body.fluido .paragrafos { gap: 10px; }
+body.fluido .paragrafos .roteiro { font-size: 14.5px; padding: 12px 14px 12px 54px; }
+body.fluido .paragrafos .roteiro .n { left: 12px; top: 11px; width: 30px; height: 30px; font-size: 16px; }
+
+/* desafio: de ↓ para */
+body.fluido .depara { grid-template-columns: 1fr; gap: 6px; margin-top: 24px; }
+body.fluido .depara .cab { display: none; }
+body.fluido .depara .de, body.fluido .depara .para { font-size: 15.5px; padding: 14px 16px; border-radius: 14px; }
+body.fluido .depara .seta { font-size: 24px; transform: rotate(90deg); height: 24px; line-height: 24px; }
+body.fluido .depara .para { margin-bottom: 12px; }
+
+/* princípios */
+body.fluido .principios .num { font-size: 34px; }
+body.fluido .principios .cartao p { font-size: 15.5px; }
+
+/* mapa das etapas: três por linha */
+body.fluido .mapa { grid-template-columns: repeat(3, 1fr); gap: 18px 10px; margin-top: 22px; }
+body.fluido .mapa .et { gap: 6px; }
+body.fluido .mapa .et .totem { width: 100%; border-radius: 14px; padding: 5px; }
+body.fluido .mapa .et .totem img { border-radius: 10px; }
+body.fluido .mapa .et h3 { font-size: 14px; }
+body.fluido .mapa .et .de { font-size: 9px; letter-spacing: .06em; }
+body.fluido .mapa .et .gesto { font-size: 12px; }
+
+/* etapas */
+body.fluido .etapa .texto { gap: 16px; }
+body.fluido .etapa .nojogo li { font-size: clamp(15px, 3.9vw, 20px); }
+body.fluido .etapa .porque { font-size: 15px; padding: 14px 16px; }
+body.fluido .etapa .porque b { font-size: 10px; }
+body.fluido .etapa .fotos { flex-direction: row; justify-content: center; gap: 14px; }
+body.fluido .etapa .fotos .totem { width: min(40vw, 190px); border-radius: 16px; padding: 6px; margin: 0; }
+body.fluido .etapa .fotos .totem img { border-radius: 11px; }
+body.fluido .tempo { font-size: 10px; }
+
+/* personagens */
+body.fluido .elenco .cartao { grid-template-rows: auto auto; gap: 12px; }
+body.fluido .elenco .par .ref { height: 230px; }
+body.fluido .elenco .par img { height: 240px; }
+body.fluido .elenco .rot { font-size: 10px; }
+body.fluido .elenco p { font-size: 15.5px; }
+
+/* estética */
+body.fluido .kit { grid-template-columns: repeat(3, 1fr); gap: 16px 12px; }
+body.fluido .kit img { max-height: 64px; }
+body.fluido .kit figcaption { font-size: 10px; }
+body.fluido .cartao .linha { gap: 4px !important; justify-content: space-between; }
+body.fluido .cartao .linha img { width: calc((100% - 24px) / 7) !important; }
+body.fluido .paleta { gap: 10px; }
+body.fluido .paleta i { width: 46px; height: 46px; outline-width: 2px; outline-offset: -8px; }
+body.fluido .paleta span { font-size: 10px; }
+body.fluido .amostra-tipo { font-size: 40px; }
+
+/* esquina */
+body.fluido .pano { height: 150px; border-radius: 14px; margin-top: 20px; }
+body.fluido .pano .janela { border-width: 3px; }
+body.fluido .pano .janela span { font-size: 9px; padding: 3px 8px; bottom: 8px; }
+body.fluido .pano .olhe { font-size: 14px; }
+body.fluido .pano .olhe.e { left: 4%; }
+body.fluido .pano .olhe.d { right: 4%; }
+body.fluido .vistas { grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+body.fluido .vistas > .col { grid-column: 1 / -1; gap: 12px; padding-top: 0 !important; }
+body.fluido .vistas .totem { width: 100%; border-radius: 14px; padding: 5px; }
+body.fluido .vistas .totem img { border-radius: 10px; }
+
+/* como a arte foi feita */
+body.fluido .passos .cartao p { font-size: 15px; }
+body.fluido .passos .ferramenta { font-size: 10px; }
+body.fluido .antesdepois { flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 24px; }
+body.fluido .antesdepois { flex-wrap: wrap; gap: 4px; }
+body.fluido .antesdepois .seta { font-size: 16px; }
+body.fluido .antesdepois .totem { width: 24vw; border-radius: 12px; padding: 4px; }
+body.fluido .antesdepois .totem img { border-radius: 9px; }
+body.fluido .antesdepois .legenda { font-size: 8.5px; letter-spacing: .02em; }
+body.fluido .antesdepois > p { flex-basis: 100%; margin-top: 10px; }
+body.fluido .antesdepois > div { width: 24vw; }
+
+/* trânsito */
+body.fluido .regras .r { gap: 12px; }
+body.fluido .regras .r p { font-size: 15.5px; }
+body.fluido .regras .ico { width: 34px; height: 34px; border-radius: 10px; font-size: 17px; }
+body.fluido .totem.p { width: min(42vw, 220px); border-radius: 18px; padding: 6px; }
+body.fluido .totem.p > img { border-radius: 12px; }
+body.fluido .linha { justify-content: center; }
+
+/* vozes */
+body.fluido .voz { grid-template-columns: 84px 1fr; gap: 16px; }
+body.fluido .medalhao { width: 84px; height: 84px; box-shadow: 0 0 0 4px var(--yellow), 0 0 0 6px #c9940a, 0 8px 16px rgba(40, 30, 20, .3); }
+body.fluido .medalhao.roxo { box-shadow: 0 0 0 4px #9b7bb0, 0 0 0 6px var(--purple), 0 8px 16px rgba(40, 30, 20, .3); }
+body.fluido .falas div { font-size: 14.5px; }
+body.fluido .falas .chip { font-size: 10px; padding: 2px 7px; margin-right: 6px; }
+
+/* vídeo */
+body.fluido .sala .totem { width: min(80vw, 380px); }
+body.fluido .capitulos { grid-template-columns: 1fr; gap: 8px; margin-top: 20px; }
+body.fluido .capitulos button { font-size: 15px; padding: 10px 14px; border-radius: 12px; }
+body.fluido .capitulos button .t { font-size: 12px; min-width: 42px; }
+body.fluido .tocar { font-size: 18px; padding: 12px 22px; margin-top: 18px; }
+
+/* navegação */
+body.fluido #nav { right: 10px; bottom: 10px; gap: 6px; }
+body.fluido #nav button { width: 34px; height: 34px; font-size: 16px; }
+body.fluido #nav #tela { display: none; }
+body.fluido #dica { left: 10px; bottom: 12px; font-size: 10px; }
+
+/* A Faixa de Pedestre: quadros do quiz e cartões de produção cabem na largura do celular */
+body.fluido .quiz-par { gap: 12px; width: 100%; }
+body.fluido .quiz-par figure, body.fluido .quiz-par .moldura { width: 100%; }
+body.fluido .quiz-par figure { flex: 1; min-width: 0; }
+body.fluido .quiz-par figcaption { font-size: 14px; }
+body.fluido .elenco.quatro { grid-template-columns: 1fr 1fr; }
+body.fluido .elenco.quatro .cartao { grid-template-rows: 200px auto; }
+body.fluido .elenco.quatro .par .ref { height: 190px; }
+body.fluido .elenco.quatro .par img { height: 195px; }
+body.fluido .elenco.quatro p { font-size: 14px; }
+body.fluido .local { margin-left: 0 !important; max-width: none !important; }
+body.fluido .local .cartao b.grande { font-size: 28px; }
+body.fluido .local .cartao p { font-size: 15px; }
+body.fluido .antesdepois .local { flex: 1 0 100%; width: 100%; grid-template-columns: 1fr 1fr !important; }
