@@ -70,7 +70,7 @@
 .passeio h3 { font-size: 30px; margin: 0; padding: 0 8px; }
 .passeio p { font-size: 21px; line-height: 1.38; padding: 0 8px; }
 .passeio .quem { font-family: var(--f-display); font-weight: 700; font-size: 22px; color: var(--purple); }
-.passeio .quem::before { content: 'quem para os carros'; font-family: var(--f-mono); font-weight: 400; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); display: block; }
+.passeio .quem::before { content: 'quem para os veículos'; font-family: var(--f-mono); font-weight: 400; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); display: block; }
 
 /* versões */
 .versoes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 34px; margin-top: 34px; }
